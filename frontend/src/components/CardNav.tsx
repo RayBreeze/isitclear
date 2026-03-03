@@ -3,6 +3,7 @@ import React, { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 // use your own icon import if react-icons is not available
 import { GoArrowUpRight } from 'react-icons/go';
+import Link from 'next/link';
 
 type CardNavLink = {
   label: string;
@@ -191,14 +192,13 @@ const CardNav: React.FC<CardNavProps> = ({
   Is It Clear ?
 </span>
 </div>
-
-          <button
-            type="button"
+          <Link
+            href="/onboarding"
             className="card-nav-cta-button hidden md:inline-flex border-0 rounded-[calc(0.75rem-0.2rem)] px-4 items-center h-full font-medium cursor-pointer transition-colors duration-300"
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
           >
             Get Started
-          </button>
+          </Link>
         </div>
 
         <div

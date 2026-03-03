@@ -96,7 +96,7 @@ export default function Home() {
 
           <div className="mt-10 flex gap-4 flex-wrap justify-center">
             <a
-              href="#"
+              href="/onboarding"
               className="px-7 py-3 rounded-2xl bg-purple-600 text-white font-medium hover:bg-purple-700 transition shadow-sm"
             >
               Get Started
