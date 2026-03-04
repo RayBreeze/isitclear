@@ -2,9 +2,8 @@ import { auth } from "@/lib/auth"
 import { headers } from "next/headers"
 import { redirect } from "next/navigation"
 import { prisma } from "@/lib/prisma"
-import StudentDashboardLayoutClient from "../student-dashboard-layout"
 
-export default async function StudentDashboardLayout({
+export default async function OnboardingLayout({
   children,
 }: {
   children: React.ReactNode
@@ -23,13 +22,9 @@ export default async function StudentDashboardLayout({
     select: { onboardingComplete: true },
   })
 
-  if (!user?.onboardingComplete) {
-    redirect("/onboarding")
+  if (user?.onboardingComplete) {
+    redirect("/dashboard/student")
   }
 
-  return (
-    <StudentDashboardLayoutClient>
-      {children}
-    </StudentDashboardLayoutClient>
-  )
+  return children
 }
