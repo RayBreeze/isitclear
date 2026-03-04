@@ -5,7 +5,8 @@ function hasSessionCookie(req: NextRequest): boolean {
   // Check for better-auth session cookie (could be session_token or session)
   return !!(
     req.cookies.get("better-auth.session_token")?.value ||
-    req.cookies.get("better-auth.session")?.value
+    req.cookies.get("better-auth.session")?.value ||
+    req.cookies.get("__Secure-better-auth.session")?.value
   );
 }
 
