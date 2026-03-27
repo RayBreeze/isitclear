@@ -32,3 +32,28 @@ export type Account = Prisma.AccountModel
  * 
  */
 export type Session = Prisma.SessionModel
+/**
+ * Model Class
+ * 
+ */
+export type Class = Prisma.ClassModel
+/**
+ * Model Enrollment
+ * 
+ */
+export type Enrollment = Prisma.EnrollmentModel
+/**
+ * Model Doubt
+ * 
+ */
+export type Doubt = Prisma.DoubtModel
+/**
+ * Model Discussion
+ * 
+ */
+export type Discussion = Prisma.DiscussionModel
+/**
+ * Model Bookmark
+ * 
+ */
+export type Bookmark = Prisma.BookmarkModel

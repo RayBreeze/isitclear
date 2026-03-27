@@ -1,9 +1,10 @@
 "use client"
 
 import { MessageCircle } from "lucide-react"
+import { useRouter } from "next/navigation"
 
-interface Doubt {
-  id: number
+type Doubt = {
+  id: string
   title: string
   author: string
   time: string
@@ -11,9 +12,15 @@ interface Doubt {
 }
 
 export default function DoubtCard({ doubt }: { doubt: Doubt }) {
-  return (
-    <div className="p-4 hover:bg-gray-50 transition cursor-pointer">
+  const router = useRouter()
 
+  return (
+    <div
+      onClick={() =>
+        router.push(`/dashboard/student/doubts/${doubt.id}`)
+      }
+      className="p-4 hover:bg-gray-50 transition cursor-pointer"
+    >
       <div className="flex items-start justify-between">
 
         <div className="flex items-start gap-3">
@@ -21,7 +28,7 @@ export default function DoubtCard({ doubt }: { doubt: Doubt }) {
           <MessageCircle size={18} className="text-gray-400 mt-1" />
 
           <div>
-            <h3 className="font-medium text-sm">
+            <h3 className="font-medium text-sm leading-snug">
               {doubt.title}
             </h3>
 
@@ -33,7 +40,7 @@ export default function DoubtCard({ doubt }: { doubt: Doubt }) {
         </div>
 
         <div
-          className={`text-xs px-2 py-1 rounded-md ${
+          className={`text-xs px-2 py-1 rounded-md whitespace-nowrap ${
             doubt.answers === 0
               ? "bg-orange-100 text-orange-600"
               : "bg-gray-100 text-gray-700"
@@ -43,7 +50,6 @@ export default function DoubtCard({ doubt }: { doubt: Doubt }) {
         </div>
 
       </div>
-
     </div>
   )
 }

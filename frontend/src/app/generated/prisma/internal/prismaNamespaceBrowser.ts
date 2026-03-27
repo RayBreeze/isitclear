@@ -53,7 +53,12 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   User: 'User',
   Account: 'Account',
-  Session: 'Session'
+  Session: 'Session',
+  Class: 'Class',
+  Enrollment: 'Enrollment',
+  Doubt: 'Doubt',
+  Discussion: 'Discussion',
+  Bookmark: 'Bookmark'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -74,16 +79,16 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 
 export const UserScalarFieldEnum = {
   id: 'id',
-  email: 'email',
   name: 'name',
-  role: 'role',
-  subject: 'subject',
-  level: 'level',
-  onboardingComplete: 'onboardingComplete',
+  email: 'email',
   createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
   emailVerified: 'emailVerified',
   image: 'image',
-  updatedAt: 'updatedAt'
+  level: 'level',
+  onboardingComplete: 'onboardingComplete',
+  role: 'role',
+  subject: 'subject'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -92,16 +97,16 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 export const AccountScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  accountId: 'accountId',
-  providerId: 'providerId',
-  accessToken: 'accessToken',
-  refreshToken: 'refreshToken',
-  accessTokenExpiresAt: 'accessTokenExpiresAt',
-  refreshTokenExpiresAt: 'refreshTokenExpiresAt',
   scope: 'scope',
+  accessToken: 'accessToken',
+  accessTokenExpiresAt: 'accessTokenExpiresAt',
+  accountId: 'accountId',
+  createdAt: 'createdAt',
   idToken: 'idToken',
   password: 'password',
-  createdAt: 'createdAt',
+  providerId: 'providerId',
+  refreshToken: 'refreshToken',
+  refreshTokenExpiresAt: 'refreshTokenExpiresAt',
   updatedAt: 'updatedAt'
 } as const
 
@@ -110,16 +115,69 @@ export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeo
 
 export const SessionScalarFieldEnum = {
   id: 'id',
-  token: 'token',
   userId: 'userId',
+  createdAt: 'createdAt',
   expiresAt: 'expiresAt',
   ipAddress: 'ipAddress',
-  userAgent: 'userAgent',
+  token: 'token',
+  updatedAt: 'updatedAt',
+  userAgent: 'userAgent'
+} as const
+
+export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
+
+
+export const ClassScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  createdAt: 'createdAt',
+  inviteCode: 'inviteCode'
+} as const
+
+export type ClassScalarFieldEnum = (typeof ClassScalarFieldEnum)[keyof typeof ClassScalarFieldEnum]
+
+
+export const EnrollmentScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  classId: 'classId'
+} as const
+
+export type EnrollmentScalarFieldEnum = (typeof EnrollmentScalarFieldEnum)[keyof typeof EnrollmentScalarFieldEnum]
+
+
+export const DoubtScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description',
+  userId: 'userId',
+  classId: 'classId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
-export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
+export type DoubtScalarFieldEnum = (typeof DoubtScalarFieldEnum)[keyof typeof DoubtScalarFieldEnum]
+
+
+export const DiscussionScalarFieldEnum = {
+  id: 'id',
+  content: 'content',
+  userId: 'userId',
+  doubtId: 'doubtId',
+  createdAt: 'createdAt'
+} as const
+
+export type DiscussionScalarFieldEnum = (typeof DiscussionScalarFieldEnum)[keyof typeof DiscussionScalarFieldEnum]
+
+
+export const BookmarkScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  doubtId: 'doubtId',
+  createdAt: 'createdAt'
+} as const
+
+export type BookmarkScalarFieldEnum = (typeof BookmarkScalarFieldEnum)[keyof typeof BookmarkScalarFieldEnum]
 
 
 export const SortOrder = {
