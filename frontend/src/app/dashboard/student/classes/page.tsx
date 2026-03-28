@@ -60,11 +60,12 @@ export default function MyClassesPage() {
 
       {/* Empty State */}
       {!loading && classes.length === 0 && (
-        <div className="flex items-center justify-center h-[50vh]">
-          <p className="text-gray-400 text-lg">
-            No classes joined yet
-          </p>
-        </div>
+        <div className="text-center py-16 text-muted-foreground">
+            <p className="text-lg">No classes joined yet</p>
+            <p className="text-sm">
+              It looks like you haven't joined any classes yet.
+            </p>
+          </div>
       )}
 
       {/* Classes Grid */}

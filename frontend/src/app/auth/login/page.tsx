@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import DotGrid from "@/components/DotGrid";
+import { BsGithub, BsGoogle } from "react-icons/bs";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -88,7 +89,7 @@ export default function LoginPage() {
 
     await authClient.signIn.social({
       provider: "google",
-      callbackURL: "/dashboard",
+      callbackURL: "/dashboard/student",
     });
   };
 
@@ -101,7 +102,7 @@ export default function LoginPage() {
 
     await authClient.signIn.social({
       provider: "github",
-      callbackURL: "/dashboard",
+      callbackURL: "/dashboard/student",
     });
   };
 
@@ -149,6 +150,7 @@ export default function LoginPage() {
             disabled={loading}
             className="w-full py-3 px-4 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 flex items-center justify-center gap-3 font-medium text-gray-700 transition disabled:opacity-50"
           >
+            <BsGoogle size={16} />
             Continue with Google
           </button>
 
@@ -157,6 +159,7 @@ export default function LoginPage() {
             disabled={loading}
             className="w-full py-3 px-4 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 flex items-center justify-center gap-3 font-medium text-gray-700 transition disabled:opacity-50"
           >
+            <BsGithub size={16} />
             Continue with GitHub
           </button>
         </div>

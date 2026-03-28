@@ -81,3 +81,8 @@ export type Discussion = Prisma.DiscussionModel
  * 
  */
 export type Bookmark = Prisma.BookmarkModel
+/**
+ * Model Verification
+ * 
+ */
+export type Verification = Prisma.VerificationModel
